@@ -1,0 +1,269 @@
+$size-parallax:767px;
+$card-size:1366px;
+$page-size:100%;
+$color-nav--active: #2e0755;
+$color-nav: #ffffff;
+$bg-card:#1c0525;
+$size-parallax2:500px;
+$color-btn: #5897f9;
+$color-h2-card: #5897f9;
+
+%border_radius{
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+}
+
+%flexbox-column{
+  display:flex;
+  flex-direction:column;
+}
+
+%flexbox-row{
+  display:flex;
+  flex-direction:row;
+}
+
+body{
+  width: $page-size;
+  margin:0 auto;
+  background-color: white;
+  scroll-behavior: smooth;
+  font-family: 'Rubik', sans-serif;
+}
+
+header ul > li{
+  list-style-type:none;
+  text-decoration:none;
+}
+
+a:link, a:visited{
+  text-decoration:none;
+}
+
+#header{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  width:100%;
+  justify-content: space-around;
+  align-items:center;
+  position:absolute;
+  z-index:9999;
+  
+  #menu{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+    flex-wrap:wrap;
+  }
+  
+  .menu__logo{
+    color:white;
+  }
+ 
+  .menu__items{
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    
+        &--link a{
+      color: $color-nav;
+      margin-right:10px;
+      padding: 8px 30px;
+      border-radius: 20px;
+      transition: all 2s ease;
+          
+           &:hover{
+                color: $color-nav--active;
+                margin-right:10px;
+                padding: 8px 30px;
+                background-color:white;
+            }
+    }
+   
+        &--active{
+        color: $color-nav--active;
+        margin-right:10px;
+        padding: 8px 30px;
+        background-color:white;
+        border-radius: 20px
+    }
+    
+
+    
+  }
+
+}
+
+.cards{
+  width:$card-size;
+  background-color: $bg-card;
+  margin: 0 auto;
+  border-radius:10px;
+  margin-top:5%;
+  margin-bottom: 5%;
+-webkit-box-shadow: 0px 1px 7px 1px rgba(0,0,0,0.39); 
+box-shadow: 0px 1px 7px 1px rgba(0,0,0,0.39);
+  display:flex;
+  flex-direction:column;
+  flex-wrap:wrap;
+  align-items:center;
+
+  
+  p{
+    color:white;
+    padding: 2%;
+    font-weight:300;
+    width:60%;
+    text-align:left;
+    margin-top:-0.5%;
+  }
+  
+  .separateur{
+        border-left: 3px solid $color-h2-card;
+  }
+  
+  h2{
+    color: $color-h2-card;
+    text-align:center;
+  }
+}
+
+#parallax{
+    position: relative;
+    width:100%;
+    height:$size-parallax;
+    overflow: hidden;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+  
+        &::before{
+            content: '';
+            position:absolute;
+            bottom:0;
+            width:100%;
+            height:100px;
+            background: linear-gradient(to top, #1c0525,transparent);
+            z-index:1000;
+        }
+  
+        img{
+          position:absolute;
+          left:0;
+          object-fit: cover;
+          width:100%;
+          height:100%;
+          pointer-events: none;
+       }
+}
+
+
+#plan5{
+    z-index:0;
+    mix-blend-mode: screen;
+}
+
+#plan5,#plan6{
+  z-index:1;
+}
+
+#plan4{
+  z-index:999;
+}
+
+#plan2{
+  z-index:2;
+}
+
+#plan3{
+  z-index:4;
+}
+
+.services{
+  display:flex;
+  flex-direction:row;
+  width:100%;
+  background-color: #4f3281;
+  height:300px; 
+  justify-content: space-around;
+  align-items: stretch;
+  flex-wrap: wrap;
+  
+  .imgbox{
+    display:flex;
+    flex-direction: column;
+    flex-basis: 25%;
+    align-items: center;
+    justify-content: center;
+
+    img{
+      width:100%;
+      object-fit: cover;
+      transform: scale(1);
+      transition: transform 0.5s ease-in;
+        &:hover{
+          transform: scale(1.05);
+          z-index:9999;
+        }
+      
+    }
+      &--1{background-color:#575ab8;}
+      &--2{background-color:#3c2763;}
+      &--3{background-color:#2b66a9;}
+      &--4{background-color:#331843;}
+  }
+
+}
+
+
+.border_radius--corner{
+    @extend %border_radius;
+}
+
+.btn{
+  padding: 8px 30px;
+  transform: scale(1);
+  transition: transform 1s ease-out;
+  
+    &:hover{
+      transform: scale(1.1);
+    }
+
+    &--primary{
+      border: 2px solid $color-btn;
+      color: $color-btn;
+    }
+  
+  &--rounded{
+    border-radius:20px;
+  }
+  
+}
+
+
+
+@media screen and (max-width: 1366px)
+{
+  
+ $size-parallax:767px;
+ $card-size:100%;
+  
+
+  #parallax{
+    position: relative;
+    width:100%;
+    height:$size-parallax;
+    overflow: hidden;
+}
+  
+  .cards{
+  width: $card-size;
+  background-color: #1c0522;
+  margin: 0 auto;
+  border-radius:0;
+  margin-top:0;
+  margin-bottom: 0;
+  overflow:hidden;
+}
+  
+}
